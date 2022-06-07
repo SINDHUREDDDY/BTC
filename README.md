@@ -20,6 +20,8 @@ public class Shortestword{
 
 
 # Fencing a Barn
+
+
 import java.util.Scanner;
 class FencingaBarn
 {
