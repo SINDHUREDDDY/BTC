@@ -124,3 +124,166 @@ class FencingaBarn
     }
 }
 
+
+#Aquarium Water pH Value
+
+
+import java.util.Scanner;
+public class Aquarium {
+	public static void main(String[] args) 
+	{
+		Scanner s=new Scanner(System.in);
+		System.out.println("Enter pH value of the aquarium water ");
+		int ph=s.nextInt();
+		if(ph<0)
+		{
+			System.out.println("invalid number");
+		}
+		else
+		{
+			if(ph<7)
+			{
+				System.out.println("pH value is low, partial water change required");
+			}
+			else if(ph==7 || ph==8)
+			{
+				System.out.println("pH value is fine");
+			}
+			else
+			{
+				System.out.println("pH value is high, partial water change required");
+			}
+		}
+	}
+
+}
+
+
+
+#Bookstore
+
+
+package com.btc.pkg1;
+
+public class Book 
+{
+	private int isbnNo;
+	private String bookName;
+	private String author;
+	private String genre;
+	private double price;
+	public int getIsbnNo() {
+		return isbnNo;
+	}
+	public void setIsbnNo(int isbnNo) {
+		this.isbnNo = isbnNo;
+	}
+	public String getBookName() {
+		return bookName;
+	}
+	public void setBookName(String bookName) {
+		this.bookName = bookName;
+	}
+	public String getAuthor() {
+		return author;
+	}
+	public void setAuthor(String author) {
+		this.author = author;
+	}
+	public String getGenre() {
+		return genre;
+	}
+	public void setGenre(String genre) {
+		this.genre = genre;
+	}
+	public double getPrice() {
+		return price;
+	}
+	public void setPrice(double price) {
+		this.price = price;
+	}
+	@Override
+	public String toString() {
+		return "Book [isbnNo=" + isbnNo + ", bookName=" + bookName + ", author=" + author + ", genre=" + genre
+				+ ", price=" + price + "]";
+	}
+	
+}
+
+
+package com.btc.pkg1;
+
+public class Bookstore 
+{
+	private String bookStoreName;
+	private String bookStoreId;
+	private Book[] books;
+	public String getBookStoreName() {
+		return bookStoreName;
+	}
+	public void setBookStoreName(String bookStoreName) {
+		this.bookStoreName = bookStoreName;
+	}
+	public String getBookStoreId() {
+		return bookStoreId;
+	}
+	public void setBookStoreId(String bookStoreId) {
+		this.bookStoreId = bookStoreId;
+	}
+	public Book[] getBooks() {
+		return books;
+	}
+	public void setBooks(Book[] books) {
+		this.books = books;
+	}
+	// Function to calculate the discount for a genre of books
+    public void calculateDiscount(Book book,double discountPercentage)
+    {
+    	String gen=book.getGenre();
+    	if(gen.equals("fiction"))
+    	{
+    		double dis=book.getPrice()-(book.getPrice()*(discountPercentage/100));
+    		book.setPrice(dis);
+            System.out.println("~~BOOK DETAILS AFTER DISCOUNT~~  \n" +book+"\n");
+    	} 
+    }
+}
+
+
+package com.btc.pkg1;
+
+public class BookStoreImp1 {
+	public static void main(String[] args) 
+	{
+		Book b=new Book();
+		b.setIsbnNo(1254);
+		b.setBookName("u can win");
+		b.setAuthor("abc");
+		b.setGenre("fiction");
+		b.setPrice(500);
+		System.out.println("~~BOOK DETAILS BEFORE DISCOUNT~~ \n"+b+"\n");
+		Book[] bb=new Book[1];
+		bb[0]=b;
+		Bookstore b1=new Bookstore();
+		b1.setBookStoreName("ABC store");
+		b1.setBookStoreId("ID-bookstore");
+		b1.setBooks(bb);
+		b1.calculateDiscount(b, 25);
+		System.out.println("---------------------------------------------------------------------------------");
+		Book b3=new Book();
+		b3.setIsbnNo(12);
+		b3.setBookName("Vegg...");
+		b3.setAuthor("aaa");
+		b3.setGenre("cooking");
+		b3.setPrice(350);
+		System.out.println("~~BOOK DETAILS BEFORE DISCOUNT~~ \n"+b3);
+		Book[] bb1=new Book[1];
+		bb1[0]=b3;	
+		Bookstore b4=new Bookstore();
+		b4.setBookStoreName("ABC store");
+		b4.setBookStoreId("88-bookstore");
+		b4.setBooks(bb1);
+		b4.calculateDiscount(b3, 25);
+	}
+}
+
