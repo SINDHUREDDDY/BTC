@@ -162,7 +162,6 @@ public class Aquarium {
 
 #Bookstore
 
-
 package com.btc.pkg1;
 
 public class Book 
@@ -286,4 +285,402 @@ public class BookStoreImp1 {
 		b4.calculateDiscount(b3, 25);
 	}
 }
+
+
+
+
+#Inheritance
+
+
+package com.btc.pkg1;
+
+public class Bike extends Vehicle
+{
+	public static void accletate(Boolean b)
+	{
+		if(b==true)
+		{
+			System.out.println("BIKE MOVES");
+		}
+		else
+		{
+			System.out.println("BIKE STOPS");
+		}
+		
+	}
+
+}
+
+
+package com.btc.pkg1;
+
+public class Bus extends Vehicle
+{
+	public static void horn(Boolean b)
+	{
+		if(b==true)
+		{
+			System.out.println("HORN");
+		}
+		else
+		{
+			System.out.println("NO HORN");
+		}
+	}
+
+
+}
+
+
+package com.btc.pkg1;
+
+public class Car extends Vehicle
+{
+	public void musicplay(Boolean b)
+	{
+		if(b==true)
+		{
+			System.out.println(" PLAYS MUSIC");
+		}
+		else
+		{
+			System.out.println("MUSIC STOPS");
+		}
+	}
+
+	@Override
+	public String toString() {
+		return super.toString();
+	}
+	
+
+}
+
+
+package com.btc.pkg1;
+
+public class Vehicle 
+{
+	private String vehiclename;
+	private String regno;
+	
+	
+	public String getVehiclename() {
+		return vehiclename;
+	}
+
+
+	public void setVehiclename(String vehiclename) {
+		this.vehiclename = vehiclename;
+	}
+
+
+	public String getRegno() {
+		return regno;
+	}
+
+
+	public void setRegno(String regno) {
+		this.regno = regno;
+	}
+
+
+	@Override
+	public String toString() {
+		return "Vehicle [vehiclename=" + vehiclename + ", regno=" + regno + "]";
+	}
+	
+}
+
+
+
+
+package com.btc.pkg1;
+
+public class Main {
+
+	public static void main(String[] args) 
+	{
+		
+		Car c=new Car();
+		c.setVehiclename("Car");
+		c.setRegno("KA 05 1111");
+		System.out.println(c);
+		c.musicplay(true);
+		System.out.println("------------------------------------------------------");
+		
+		Bus b =new Bus();
+		b.setVehiclename("BUS");
+		b.setRegno("KA 05 2222");
+		System.out.println(b);
+		b.horn(true);
+		System.out.println("------------------------------------------------------");
+
+		
+		Bike b1=new Bike();
+		b1.setVehiclename("BIKE");
+		b1.setRegno("KA 05 3333");
+		System.out.println(b1);
+		b1.accletate(false);
+
+	}
+
+}
+
+
+
+
+#Score of Students
+
+
+package com.btc.pkg1;
+
+public class StudentMarks 
+{
+	/* adding 4 integer values.*/
+
+
+    public int calculateMarks(int physics, int chemistry, int maths) {
+
+
+        return physics+chemistry+maths;
+    }
+
+    /* adding 3 integer values.*/
+    public int calculateMarks(int physics, int chemistry, int maths, int bio) {
+
+
+        return physics+chemistry+maths+bio;
+    }
+
+    /* adding 4 double values.*/
+    public double calculateMarks(double physics, double chemistry, double maths, double bio) {
+
+
+        return physics+chemistry+maths+bio;
+    }
+
+    /* static method adding 5 float values.*/
+    public static float calculateMarks(float maths, float bio, float physics, float chemistry, float lang) {
+
+
+        return maths+bio+physics+chemistry+lang;
+    }
+
+
+    /* adding 4 float values with order changed.*/
+    public float calculateMarks(float maths, float bio, float physics, float chemistry) {
+
+
+
+        return maths+bio+physics+chemistry;
+    }
+    public static void main(String[] args) 
+    {
+    	System.out.println("Float Static method "+calculateMarks(65f,88f,56f,67f,77f));
+    	StudentMarks s=new StudentMarks();
+    	System.out.println("Float NonStatic Method "+s.calculateMarks(65f,88f,56f,67f));
+    	System.out.println("Double NonStatic Method "+s.calculateMarks(56.0, 95, 65, 70.0));
+    	System.out.println("Integer Method with 4 values " +s.calculateMarks(60, 70, 58, 88));
+    	System.out.println("Integer Method with 3 values " +s.calculateMarks(70, 58, 88));
+		
+	}
+
+}
+
+
+
+#A Mobile Phone List
+
+
+package com.btc.pkg;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args)
+	{
+		//  500$ = 39,011.53
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the brand name as given below: \nSamsung\nVivo\nApple\nOnePlus");
+		String str=sc.nextLine();
+		MobileStore m=new MobileStore();
+		System.out.println();
+		System.out.println("------Mobile Based on brand name-----");
+		List<Mobile> phoneBrand = m.findPhoneByBrand(str);
+		System.out.println(phoneBrand);
+		System.out.println("--------------------------------------------------------------------------------------------------------------------------------------------------------");
+		System.out.println("------Mobile Based on price More Than 500$-----");
+		List<Mobile> phoneMoreThan500 = m.findPhoneCostMoreThan500$();
+		System.out.println(phoneMoreThan500);
+		System.out.println("--------------------------------------------------------------------------------------------------------------------------------------------------------");
+		System.out.println("------Mobile Based on camera specification as 12 MP and more-----");
+
+		List<Mobile> pixelMoreThan12 = m.findPhonePixelMoreThan12MP();
+		System.out.println(pixelMoreThan12);
+
+	}
+	
+
+}
+
+
+
+package com.btc.pkg;
+
+
+public class Mobile {
+
+    private String brandName;
+    private String modelName;
+    private double cost;
+    private String screenSize;
+    private String batteryLife;
+    private String storageSpace;
+    private int cameraPixels;
+    //getter and setter
+	public String getBrandName() {
+		return brandName;
+	}
+	public void setBrandName(String brandName) {
+		this.brandName = brandName;
+	}
+	public String getModelName() {
+		return modelName;
+	}
+	public void setModelName(String modelName) {
+		this.modelName = modelName;
+	}
+	public double getCost() {
+		return cost;
+	}
+	public void setCost(double cost) {
+		this.cost = cost;
+	}
+	public String getScreenSize() {
+		return screenSize;
+	}
+	public void setScreenSize(String screenSize) {
+		this.screenSize = screenSize;
+	}
+	public String getBatteryLife() {
+		return batteryLife;
+	}
+	public void setBatteryLife(String batteryLife) {
+		this.batteryLife = batteryLife;
+	}
+	public String getStorageSpace() {
+		return storageSpace;
+	}
+	public void setStorageSpace(String storageSpace) {
+		this.storageSpace = storageSpace;
+	}
+	public int getCameraPixels() {
+		return cameraPixels;
+	}
+	public void setCameraPixels(int cameraPixels) {
+		this.cameraPixels = cameraPixels;
+	}
+	//constructor
+	public Mobile(String brandName, String modelName, double cost, String screenSize, String batteryLife,
+			String storageSpace, int cameraPixels) {
+		super();
+		this.brandName = brandName;
+		this.modelName = modelName;
+		this.cost = cost;
+		this.screenSize = screenSize;
+		this.batteryLife = batteryLife;
+		this.storageSpace = storageSpace;
+		this.cameraPixels = cameraPixels;
+	}
+	//toString method
+	@Override
+	public String toString() {
+		return "Mobile \n[brandName=" + brandName + ", modelName=" + modelName + ", cost=" + cost + ", screenSize="
+				+ screenSize + ", batteryLife=" + batteryLife + ", storageSpace=" + storageSpace + ", cameraPixels="
+				+ cameraPixels + "]\n";
+	}
+	
+}
+
+
+
+package com.btc.pkg;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+import java.util.stream.Collectors;
+
+public class MobileStore 
+{
+	
+	
+
+
+    public MobileStore()
+    {
+    	
+
+    }
+    public List<Mobile> addValues()
+    {
+    	List<Mobile> list=new ArrayList<Mobile>();
+    	Mobile m1=new Mobile("Samsung", "Samsung M55", 46000,"6.7inches", "5000mAh", "128GB RAM", 32);
+		Mobile m2=new Mobile("Samsung", "Samsung M33", 20000,"5.7inches", "3000mAh", "64GB RAM", 12);
+		Mobile m3=new Mobile("Apple", "iphone 13", 79000,"6.1inches", "3000mAh", "128GB ", 12);
+		Mobile m4=new Mobile("Apple", "iphone SE", 32000,"4.7inches", "1821mAh", "64GB ", 7);
+		Mobile m5=new Mobile("Vivo", "Vivo Y75", 21000,"6.44inches", "4050mAh", "128GB ", 7);
+		Mobile m6=new Mobile("Oneplus", "OnePlus 10R", 40000,"6.7inches", "5000mAh", "128GB ", 16);
+		
+		
+		list.add(m1);
+		list.add(m2);
+		list.add(m3);
+		list.add(m4);
+		list.add(m5);
+		list.add(m6);
+    	return list;
+    }
+   
+    //Find phones of a particular brand.
+    public List<Mobile> findPhoneByBrand(String brandName)
+    {
+    	List<Mobile> lists=addValues();
+		 lists= lists.stream().filter( s ->  s.getBrandName().equalsIgnoreCase(brandName)).collect(Collectors.toList());
+    	//System.out.println(lists);
+		return lists;
+    	
+    }
+
+    //Find the phones whose cost is $500 and above.
+    public List<Mobile> findPhoneCostMoreThan500$()
+    {
+    	List<Mobile> lists1=addValues();
+		 lists1=lists1.stream().filter(s -> s.getCost()>=39000).collect(Collectors.toList());
+
+      return lists1;
+    }
+
+    //Enlist the phones which have camera specification as 12 MP and more
+    public List<Mobile> findPhonePixelMoreThan12MP()
+    {
+    	List<Mobile> lists=addValues();
+		lists=lists.stream().filter(s -> s.getCameraPixels()>=12).collect(Collectors.toList());
+    	
+        return lists;
+    }
+
+
+
+
+
+	
+
+
+}
+
 
