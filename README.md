@@ -797,4 +797,302 @@ public class Item
 
 
 
-# 
+# Report Generation
+
+package com.btc.pkg1;
+
+
+import java.util.Comparator;
+import java.util.List;
+class getRollNumber implements Comparator<Student>
+{
+	
+	@Override
+	public int compare(Student s1, Student s2) 
+	{
+		
+		return s2.getTotal()-s1.getTotal();
+	}
+}
+
+
+public class ReportGeneration {
+	
+	Student s=new Student();
+	public int[] totalscore(List<Student> studentList)
+	{
+		int res[]=new int[studentList.size()];
+		for(int i=0;i<res.length;i++)
+		{
+			res[i]=studentList.get(i).getTotal();
+		}
+		return res;
+	}
+	
+	
+	public String getTopScorer(List<Student> studentList)
+	{
+	
+		String name=null;
+		//calculating top marks scored by the students and showing name
+		int res[]=totalscore(studentList);
+		int large=res[0];
+		int largeindex=0;
+		for(int i=0;i<studentList.size();i++)
+		{
+			if(large<res[i])
+			{
+				large=res[i];
+				largeindex=i;
+			}
+			
+		}
+		name=studentList.get(largeindex).getStudentName();
+		return name;
+	}
+	
+	public void getPassedOutStudents(List<Student> studentList)
+	{
+	
+		for(int i=0;i< studentList.size();i++)
+		{
+			if( studentList.get(i).getChemistryScore()>=50 && studentList.get(i).getMathsScore()>=50 && studentList.get(i).getPhysicsScore()>=50)
+			{
+		
+				System.out.println("STUDENT NAMES WHO PASSED THE EXAM "+studentList.get(i).getStudentName());
+			}
+		}
+	}
+	
+	public void getStudentsForRetest(List<Student> studentList)
+	{
+		for(int i=0;i< studentList.size();i++)
+		{
+			if( studentList.get(i).getChemistryScore()<50 || studentList.get(i).getMathsScore()<50 || studentList.get(i).getPhysicsScore()<50)
+			{
+		
+				System.out.println("STUDENT NAMES WHO FAILED IN THE EXAM (MARKS < 50) "+studentList.get(i).getStudentName());
+			}
+		}
+		
+	}
+	
+	public void getStudentGrades(List<Student> studentList)
+	{
+					
+		char grade = 0;
+		int[] total=totalscore(studentList);
+		for(int i=0;i<total.length;i++)
+		{
+			if( studentList.get(i).getChemistryScore()<50 || studentList.get(i).getMathsScore()<50 || studentList.get(i).getPhysicsScore()<50)
+			{
+				grade='F';
+				System.out.println("STUDENT NAME "+ studentList.get(i).getStudentName()+" GRADE: "+grade);
+
+			}
+			else if(total[i]>=150 && total[i]<200)
+			{
+				grade='C';
+				System.out.println("STUDENT NAME "+ studentList.get(i).getStudentName()+" GRADE: "+grade);
+			}else if(total[i]>=200 && total[i]<250)
+			{
+				
+				grade='B';
+				System.out.println("STUDENT NAME "+ studentList.get(i).getStudentName()+" GRADE: "+grade);
+				
+			}
+			else if(total[i]>=250)
+			{
+				
+				grade='A';
+				System.out.println("STUDENT NAME "+ studentList.get(i).getStudentName()+" GRADE: "+grade);
+			}
+		}
+		
+	}
+	//public void getStudentRollNumber(List<Student> studentList)
+	//{
+		//int[] initial=totalscore(studentList);
+		//int[] total=totalscore(studentList);
+		//for(int i=0;i<total.length;i++)
+		//{
+			//for(int j=i+1;j<total.length;j++)
+			//{
+				//if(total[i]<total[j])
+				//{
+					//int temp=total[i];
+					//total[i]=total[j];
+					//total[j]=temp;
+				//}
+			//}
+			
+		//}
+		//System.out.println("Displays the roll numbers of the students on the class board in descending order of the total marks scored in the exam");
+		//for(int i=0;i<initial.length;i++)
+		///{
+			//for(int j=0;j<total.length;j++)
+			///{
+				//if(total[i]==initial[j])
+				///{
+					//System.out.println("ROLL NUMBER OF " +(i+1)+ "th: "+studentList.get(j).getRollNo());
+				//}
+			//}
+		//}
+		//for(int i=0;i<total.length;i++)
+		//{
+			//System.out.println(studentList.get(i).getRollNo());
+		//}
+		
+	//}
+    
+}
+					
+package com.btc.pkg1;
+public class Student {
+
+	private int rollNo;
+	private String studentName;
+	private int mathsScore;
+	private int chemistryScore;
+	private int physicsScore;
+	
+	private int total;
+	
+	
+	public Student() {
+	}
+
+
+	public Student(int rollNo, String studentName, int mathsScore, int chemistryScore, int physicsScore) {
+		super();
+		this.rollNo = rollNo;
+		this.studentName = studentName;
+		this.mathsScore = mathsScore;
+		this.chemistryScore = chemistryScore;
+		this.physicsScore = physicsScore;
+	}
+
+
+	public int getRollNo() {
+		return rollNo;
+	}
+
+
+	public void setRollNo(int rollNo) {
+		this.rollNo = rollNo;
+	}
+
+
+	public String getStudentName() {
+		return studentName;
+	}
+
+
+	public void setStudentName(String studentName) {
+		this.studentName = studentName;
+	}
+
+
+	public int getMathsScore() {
+		return mathsScore;
+	}
+
+
+	public void setMathsScore(int mathsScore) {
+		this.mathsScore = mathsScore;
+	}
+
+
+	public int getChemistryScore() {
+		return chemistryScore;
+	}
+
+
+	public void setChemistryScore(int chemistryScore) {
+		this.chemistryScore = chemistryScore;
+	}
+
+
+	public int getPhysicsScore() {
+		return physicsScore;
+	}
+
+
+	public void setPhysicsScore(int physicsScore) {
+		this.physicsScore = physicsScore;
+	}
+
+
+	public int getTotal() {
+		return getPhysicsScore()+getChemistryScore()+getMathsScore();
+	}
+
+
+	public void setTotal(int total) 
+	{
+		this.total =total;
+	}
+
+
+	@Override
+	public String toString() {
+		return "Student [rollNo=" + rollNo + ", studentName=" + studentName + ", mathsScore=" + mathsScore
+				+ ", chemistryScore=" + chemistryScore + ", physicsScore=" + physicsScore + ", total=" + total + "]";
+	}
+	
+	
+	
+	
+}
+					
+					package com.btc.pkg1;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+
+public class Main {
+
+	public static void main(String[] args) 
+	{
+		List<Student> studentList;
+			Student s1 = new Student(1001, "Harsh", 85, 77, 82);
+			s1.setTotal(s1.getTotal());
+			Student s2 = new Student(1002, "Priya", 57, 35, 63);
+			Student s3 = new Student(1003, "Suraj", 32, 71, 61);
+			Student s4 = new Student(1004, "Anil", 55, 52, 61);
+			Student s5 = new Student(1009, "Arul", 95, 92, 97);
+			s2.setTotal(s2.getTotal());
+			s3.setTotal(s3.getTotal());
+			s4.setTotal(s4.getTotal());
+			s5.setTotal(s5.getTotal());
+			
+			Comparator<Student> g=new getRollNumber();
+			studentList = new ArrayList<>();
+			studentList.add(s1);
+			studentList.add(s2);
+			studentList.add(s3);
+			studentList.add(s4);
+			studentList.add(s5);
+			
+			ReportGeneration r=new ReportGeneration();
+			
+			System.out.println();
+			r.getPassedOutStudents(studentList);
+			System.out.println();
+			r.getStudentsForRetest(studentList);
+			System.out.println();
+			r.getStudentGrades(studentList);
+			System.out.println();
+			System.out.println("CLASS TOPPER IN ORDER ");
+			
+			Collections.sort(studentList,g);
+			for(int i=0;i<studentList.size();i++)
+			{
+				System.out.println("ROLL NUMBER OF " +(i+1)+ "th: "+studentList.get(i).getRollNo());
+			}
+			//r.getStudentRollNumber(studentList);
+	}
+
+}
