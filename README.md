@@ -1096,3 +1096,343 @@ public class Main {
 	}
 
 }
+
+					
+					
+# Assignment
+					
+					package com.btc.jsp1;
+
+public class Book extends WrittenItem
+{
+					
+	public Book(int identificationnumber, String title, int numberofcopies, String authorname) {
+		super(identificationnumber, title, numberofcopies, authorname);
+		// TODO Auto-generated constructor stub
+	}
+	@Override
+	void showauthordetails() {
+		System.out.println("author name = "+super.authorname+"\n book name = " +super.getTitle());
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void print() {
+		System.out.println("Book class---------print..................");
+		
+	}
+
+	@Override
+	public void checkin() {
+		// TODO Auto-generated method stub
+		System.out.println("Book class-------checked in................");
+		
+	}
+
+	@Override
+	public void checkout() {
+		System.out.println("Book class-------checked out...............");
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void additem() {
+		System.out.println("Book class------Item added..............");
+		// TODO Auto-generated method stub
+		
+	}
+
+}
+
+					
+					package com.btc.jsp1;
+
+public class Cd extends MediaItem
+{
+	
+	String artist;
+	String genre;
+
+	public Cd(int identificationnumber, String title, int numberofcopies, int runtime,String artist,String genre) {
+		super(identificationnumber, title, numberofcopies, runtime);
+		// TODO Auto-generated constructor stub
+		this.artist=artist;
+		this.genre=genre;
+	}
+
+	@Override
+	public void show_details_media() 
+	{
+		System.out.println("artist = "+artist+"\ngenre ="+genre);
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void print() {
+		System.out.println("Cd class------------ print----------");
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void checkin() {
+		// TODO Auto-generated method stub
+		System.out.println("Cd class------------ checked in----------");
+
+	}
+
+	@Override
+	public void checkout() {
+		// TODO Auto-generated method stub
+		System.out.println("Cd class------------ checked out----------");
+
+	}
+
+	@Override
+	public void additem() {
+		// TODO Auto-generated method stub
+		System.out.println("Cd class------------ item added----------");
+
+		
+	}
+	
+
+}
+
+					
+package com.btc.jsp1;
+
+public abstract class Item 
+{
+	
+	private int identificationnumber;
+	private String title;
+	private int numberofcopies;
+	public Item(int identificationnumber, String title, int numberofcopies) {
+		super();
+		this.identificationnumber = identificationnumber;
+		this.title = title;
+		this.numberofcopies = numberofcopies;
+	}
+	public int getIdentificationnumber() {
+		return identificationnumber;
+	}
+	public void setIdentificationnumber(int identificationnumber) {
+		this.identificationnumber = identificationnumber;
+	}
+	public String getTitle() {
+		return title;
+	}
+	public void setTitle(String title) {
+		this.title = title;
+	}
+	public int getNumberofcopies() {
+		return numberofcopies;
+	}
+	public void setNumberofcopies(int numberofcopies) {
+		this.numberofcopies = numberofcopies;
+	}
+	@Override
+	public String toString() {
+		return "Item [identificationnumber=" + identificationnumber + ", title=" + title + ", numberofcopies="
+				+ numberofcopies + "]";
+	}
+	public abstract void print();
+	public abstract void checkin();
+	public abstract void checkout();
+	public abstract void additem();
+
+}
+
+					
+package com.btc.jsp1;
+
+public class JournalPaper extends WrittenItem
+{
+
+	String year_published;
+
+	public JournalPaper(int identificationnumber, String title, int numberofcopies, String authorname, String year_published) {
+		super(identificationnumber, title, numberofcopies, authorname);
+		this.year_published=year_published;
+		// TODO Auto-generated constructor stub
+	}
+
+	@Override
+	void showauthordetails() 
+	{
+		System.out.println("year of published = " +year_published);
+	}
+
+	@Override
+	public void print() {
+		// TODO Auto-generated method stub
+		System.out.println("JournalPape class---------- print............");
+	}
+
+	@Override
+	public void checkin() {
+		// TODO Auto-generated method stub
+		System.out.println("JournalPape class---------check in.......");
+	}
+
+	@Override
+	public void checkout() {
+		// TODO Auto-generated method stub
+		System.out.println("JournalPape class---------checked out.......");
+	}
+
+	@Override
+	public void additem() {
+		// TODO Auto-generated method stub
+		System.out.println("JournalPape class---------- item added..........");
+	}
+	
+	
+
+}
+
+					
+package com.btc.jsp1;
+
+public class Main {
+
+	public static void main(String[] args) {
+		WrittenItem b=new Book(12, "YOU CAN WIN", 150, "AUTHOR_ABC");
+		System.out.println(b);
+		b.showauthordetails();
+		b.additem();
+		b.checkin();
+		b.checkout();
+		b.print();
+		WrittenItem w=new JournalPaper(8, "SKY HIGH", 265,"Jay", "JAN-20-2020");
+		System.out.println("-------------------------------------------------------------------------------------------");
+		System.out.println(w);
+		w.showauthordetails();
+		w.additem();
+		w.checkin();
+		w.checkout();
+		w.print();
+		System.out.println("-------------------------------------------------------------------------------------------");
+		MediaItem m=new Video(77, "The Secret", 987, 1365, "Rhonda", "Spiritual", "Nov-2006");
+		System.out.println(m);
+		m.show_details_media();
+		m.additem();
+		m.checkin();
+		m.checkout();
+		m.print();
+		System.out.println("-------------------------------------------------------------------------------------------");
+		MediaItem m1=new Cd(77, "Anything", 70, 125, "abc", "Cooking");
+		System.out.println(m1);
+		m1.show_details_media();
+		m1.additem();
+		m1.checkin();
+		m1.checkout();
+		m1.print();
+		
+	}
+
+}
+
+package com.btc.jsp1;
+
+public abstract class MediaItem extends Item 
+{
+					
+	int runtime;
+
+	public MediaItem(int identificationnumber, String title, int numberofcopies, int runtime) {
+		super(identificationnumber, title, numberofcopies);
+		// TODO Auto-generated constructor stub
+		this.runtime=runtime;
+	}
+	
+	public abstract void show_details_media();
+
+	@Override
+	public String toString() {
+		return super.toString()+ "\nMediaItem [runtime=" + runtime + "]";
+	}
+	
+}
+
+					
+package com.btc.jsp1;
+
+public class Video extends MediaItem 
+{
+					
+	String director;
+	String genre;
+	String year_released;
+
+	public Video(int identificationnumber, String title, int numberofcopies, int runtime,String director,String genre,String year_released) 
+	{
+		super(identificationnumber, title, numberofcopies, runtime);
+		// TODO Auto-generated constructor stub
+		this.director=director;
+		this.genre=genre;
+		this.year_released=year_released;
+	}
+
+	@Override
+	public void show_details_media() {
+		System.out.println("director = " +director+"\ngenre = "+genre+"\nyear_released = " +year_released);
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void print() {
+		// TODO Auto-generated method stub
+		System.out.println("Video class---------- print----------");
+		
+	}
+
+	@Override
+	public void checkin() {
+		// TODO Auto-generated method stub
+		System.out.println("Video class---------- checked in----------");
+
+	}
+
+	@Override
+	public void checkout() {
+		// TODO Auto-generated method stub
+		System.out.println("Video class---------- checked out----------");
+
+	}
+
+	@Override
+	public void additem() {
+		// TODO Auto-generated method stub
+		System.out.println("Video class---------- item added----------");
+	}
+	
+
+}
+
+					
+package com.btc.jsp1;
+
+public abstract class WrittenItem extends Item
+{
+					
+	String authorname;
+	public WrittenItem(int identificationnumber, String title, int numberofcopies, String authorname) {
+		super(identificationnumber, title, numberofcopies);
+		this.authorname=authorname;
+		// TODO Auto-generated constructor stub
+	}
+
+	abstract void showauthordetails();
+
+	@Override
+	public String toString() {
+		return super.toString() +"\nWrittenItem [authorname=" + authorname + "]";
+	}
+	
+}
