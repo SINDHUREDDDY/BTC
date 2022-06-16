@@ -1436,3 +1436,429 @@ public abstract class WrittenItem extends Item
 	}
 	
 }
+
+					
+# Monday Assignment
+					
+package com.btc.pkg;
+
+public class Mainprg10 {
+
+	public static void main(String[] args) 
+	{
+		int arr1[]= {1,2,3,4};
+		int arr2[]= {3,4,5,6};
+		System.out.println(prg10.test(arr1, arr2));
+		
+
+	}
+
+}
+
+					package com.btc.pkg;
+
+public class prg10 {
+
+	public static int test(int arr1[],int arr2[]) 
+	{
+		
+		int sum=0;
+		int count=0;
+		int logic[]=new int[arr1.length];
+		for(int i=0;i<arr1.length;i++)
+		{
+			for(int j=0;j<arr2.length;j++)
+			{
+				if(arr1[i]==arr2[j])
+				{
+					if(count<arr1.length)
+					{
+						logic[count]=arr1[i];
+						count++;
+					}
+				}
+			}
+		}
+		for(int i=0;i<logic.length;i++)
+		{
+			if(logic[i]!=0)
+			{
+				sum=sum+logic[i];
+				
+			}
+			
+		}
+		return sum;
+
+	}
+
+}
+
+					
+					package com.btc.pkg;
+
+public class prg13 {
+	public static void test(int input1, int input2) {
+		
+		int sum = 0;
+		for (int i = input1; i <= input2; i++) {
+
+			boolean b = isPalindrome(i);
+			if (b) {
+
+				sum = sum + i;
+			}
+
+		}
+		System.out.println(sum);
+
+	}
+
+	private static boolean isPalindrome(int i) {
+		int temp = i, rev = 0;
+		do {
+			int digit = i % 10;
+			rev = rev * 10 + digit;
+			i = i / 10;
+
+		} while (i > 0);
+
+		return rev == temp;
+	}
+
+}
+
+					
+					package com.btc.pkg;
+import java.util.Scanner;
+public class Mainprg13 {
+
+	public static void main(String[] args) 
+	{
+		
+		Scanner sc = new Scanner(System.in);
+		System.out.println("enter the first value");
+		int input1 = sc.nextInt();
+		System.out.println("enter the second value");
+		int input2 = sc.nextInt();
+		prg13.test(input1, input2);
+
+	}
+
+}
+
+					
+					package com.btc.pkg;
+
+public class prg3 
+{
+	public static int[] check(int arr1[],int arr2[]) 
+	{
+		
+		int res[]=new int[arr1.length];
+		for(int i=0;i<arr1.length;i++)
+		{
+			for(int j=0;j<arr2.length;j++)
+			{
+				if(arr1[i]!=arr2[j])
+				{
+					for(int k=0;k<res.length;k++)
+					{
+						res[k]=arr1[i];
+						res[k+1]=arr2[j];
+						break;
+					}
+				}
+			}
+		}
+		for(int i=0;i<res.length;i++)
+		{
+			if(res[i]!=0)
+			{
+				System.out.print(res[i]+" ");
+				
+			}
+			
+		}
+		return res;
+		
+	}
+}
+
+					
+					package com.btc.pkg;
+
+public class Mainprg3 {
+
+	public static void main(String[] args) 
+	{
+		int arr1[]= {1,2,3,4};
+		int arr2[]= {1,2,3,5};
+		System.out.println(prg3.check(arr1,arr2));
+		// TODO Auto-generated method stub
+
+	}
+
+}
+
+					package com.btc.pkg;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+public class prg4 {
+	public void fruitsList(List<String> list1, List<String> list2) {
+		List<String> list3 = new ArrayList<String>();
+		for (int i = 0; i < list1.size(); i++) {
+			String s1 = list1.get(i);
+			if (s1.charAt(0) != 'a' && s1.charAt(0) != 'A' && s1.charAt(0) != 'g' && s1.charAt(0) != 'G')
+				list3.add(s1);
+		}
+		for (int i = 0; i < list2.size(); i++) {
+			String s1 = list2.get(i);
+			if (s1.charAt(s1.length() - 1) != 'n' && s1.charAt(s1.length() - 1) != 'N'
+					&& s1.charAt(s1.length() - 1) != 'e' && s1.charAt(s1.length() - 1) != 'E')
+				list3.add(s1);
+		}
+		Collections.sort(list3);
+		String[] s2 = new String[list3.size()];
+		for (int i = 0; i < s2.length; i++)
+			s2[i] = list3.get(i);
+		for(String s3:s2)
+			System.out.println(s3);
+	}
+
+}
+
+					
+					package com.btc.pkg;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+public class Mainprg4
+
+{
+	public static void main(String[] args) 
+	{
+		ArrayList list1=new ArrayList();
+		 list1.add("apple");
+		 list1.add("orange");
+		 list1.add("grapes");
+		 ArrayList list2=new ArrayList();
+		 list2.add("melon");
+		 list2.add("apple");
+		 list2.add("mango");
+		prg4 p=new prg4();
+		p.fruitsList(list1, list2);
+		
+	}
+		
+
+}
+
+					package com.btc.pkg;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+public class Mainprg4
+
+{
+	public static void main(String[] args) 
+	{
+		ArrayList list1=new ArrayList();
+		 list1.add("apple");
+		 list1.add("orange");
+		 list1.add("grapes");
+		 ArrayList list2=new ArrayList();
+		 list2.add("melon");
+		 list2.add("apple");
+		 list2.add("mango");
+		prg4 p=new prg4();
+		p.fruitsList(list1, list2);
+		
+	}
+		
+
+}
+
+					
+					package com.btc.pkg;
+import java.util.Scanner;
+public class Mainprg5 {
+
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("ENTER A STRING IN THE ORDER OF    AAAAA*AAAAA");
+		String str=sc.nextLine();
+		prg5.test(str);
+		
+
+	}
+
+}
+
+					
+					package com.btc.pkg;
+
+public class prg5 {
+
+	public static void test(String str) 
+	{
+		int i=str.indexOf('*');
+		String str1=str.substring(0, i);
+		String str2=str.substring(i+1, str.length());
+		System.out.println(str1.equalsIgnoreCase(str2));
+	}
+
+}
+
+					
+					package com.btc.pkg;
+
+public class prg8n11 {
+
+	public static int[] test(int[] arr1,int []arr2) 
+	{
+		
+		int res[]=new int[arr1.length];
+		if(arr1.length==arr2.length)
+		{
+			for(int i=0;i<arr1.length;i++)
+			{
+				if(i%2!=0)
+				{
+					res[i]=arr1[i];
+				}
+			}
+			for(int i=0;i<arr2.length;i++)
+			{
+				if(i%2==0)
+				{
+					res[i]=arr2[i];
+				}
+			}
+			
+			
+		}
+		for(int i=0;i<res.length;i++)
+		{
+			System.out.print(res[i]+" ");
+		}
+		return res;
+
+	}
+
+}
+
+					
+					package com.btc.pkg;
+import java.util.Scanner;
+public class Mainprg8n11 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner sc=new Scanner(System.in);
+		System.out.println("ENTER SIZE  ARRAY");
+		int n=sc.nextInt();
+		int arr1[] = new int[n];
+		int arr2[]=new int[n];
+		System.out.println("ENTER ARRAY 1 ELEMENTS");
+		for(int i=0;i<n;i++)
+		{
+			arr1[i]=sc.nextInt();
+		}
+		System.out.println("ENTER ARRAY 2 ELEMENTS");
+		for(int i=0;i<n;i++)
+		{
+			arr2[i]=sc.nextInt();
+		}
+		prg8n11.test(arr1, arr2);
+		
+
+	}
+
+}
+
+					
+					package com.btc.pkg;
+import java.util.*;
+import java.util.Arrays;
+
+public class Mainprg9 {
+
+	public static void main(String[] args) {
+		String[] name = {"red", "green", "blue", "ivory"};  
+		int size = name.length;
+		Scanner sc=new Scanner(System.in);
+		System.out.println("ENTER INDEX\n");
+		int index=sc.nextInt();
+		prg9.sort(size,name,index);
+		System.out.println();
+		
+
+	}
+	
+
+}
+
+					
+					package com.btc.pkg;
+
+import java.util.Arrays;
+
+public class prg9 {
+
+	public static void sort(int size,String[] list,int index) 
+	{
+		System.out.println("Before Sorted ");
+		for(int i=0;i<list.length;i++)
+		{
+			System.out.print(list[i]+"\t");
+		}
+		     
+		for(int i = 0; i<size-1; i++)   
+		{  
+		for (int j = i+1; j<list.length; j++)   
+		{  
+		//compares each elements of the array to all the remaining elements  
+		if(list[i].compareTo(list[j])>0)   
+		{  
+		//swapping array elements  
+		String temp = list[i];  
+		list[i] = list[j];  
+		list[j] = temp;  
+		}  
+		}  
+		}  
+		//prints the sorted array in ascending order  
+		System.out.print("\nAfter Sorting\n"+Arrays.toString(list));  
+		reverse(list,index);
+
+	}
+	public static void reverse(String[] str, int index)
+	   {
+	      for(int a = 0; a < str.length / 2; a++)
+	      {
+	         String strTemp = str[a];
+	         str[a] = str[str.length - a - 1];
+	         str[str.length - a - 1] = strTemp;
+	      }
+	      System.out.println("\nReversed string array: ");
+	      for(int a = 0; a < str.length; a++)
+	      {
+	         System.out.print(str[a]+"\t");
+	         
+	      }
+	      if(index==1)
+	      {
+    		  System.out.println("\nEntered index is 1 so printing 0th index of reversed array:\n"+str[0]);
+	      }
+	   }
+
+}
