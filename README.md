@@ -4,6 +4,7 @@
 import java.util.Scanner;
 class UniqueArrays
 {
+
     public static void check(int a[],int l)
     {
         int count=0;
@@ -44,6 +45,7 @@ class UniqueArrays
 
 
 public class Shortestword{
+
     public static void main(String args[]){
         String[] words =  {"Atrocity", "Pensive", "Imperceptible", "Discordant"};
         String shortest = words[0];
@@ -64,6 +66,7 @@ public class Shortestword{
 
 class Calorietracker
 {
+
     public static void main(String[] arg)
     {
         System.out.println("Calorie burnt by cycling : 300\nCalorie burnt by running : 500\nCalorie burnt by swimming: 200\nCalorie intake in a day  : 100\n");
@@ -82,6 +85,7 @@ class Calorietracker
 import java.util.Scanner;
 class FencingaBarn
 {
+
     public static void square(double s)
     {
         System.out.println("Area of square fence for chickens is " + s*s);
@@ -129,7 +133,9 @@ class FencingaBarn
 
 
 import java.util.Scanner;
-public class Aquarium {
+public class Aquarium
+{
+
 	public static void main(String[] args) 
 	{
 		Scanner s=new Scanner(System.in);
@@ -166,6 +172,7 @@ package com.btc.pkg1;
 
 public class Book 
 {
+
 	private int isbnNo;
 	private String bookName;
 	private String author;
@@ -214,6 +221,7 @@ package com.btc.pkg1;
 
 public class Bookstore 
 {
+
 	private String bookStoreName;
 	private String bookStoreId;
 	private Book[] books;
@@ -252,6 +260,7 @@ public class Bookstore
 package com.btc.pkg1;
 
 public class BookStoreImp1 {
+
 	public static void main(String[] args) 
 	{
 		Book b=new Book();
@@ -296,6 +305,7 @@ package com.btc.pkg1;
 
 public class Bike extends Vehicle
 {
+
 	public static void accletate(Boolean b)
 	{
 		if(b==true)
@@ -316,6 +326,7 @@ package com.btc.pkg1;
 
 public class Bus extends Vehicle
 {
+
 	public static void horn(Boolean b)
 	{
 		if(b==true)
@@ -335,7 +346,9 @@ public class Bus extends Vehicle
 package com.btc.pkg1;
 
 public class Car extends Vehicle
+
 {
+
 	public void musicplay(Boolean b)
 	{
 		if(b==true)
@@ -361,6 +374,7 @@ package com.btc.pkg1;
 
 public class Vehicle 
 {
+
 	private String vehiclename;
 	private String regno;
 	
@@ -437,6 +451,7 @@ package com.btc.pkg1;
 
 public class StudentMarks 
 {
+
 	/* adding 4 integer values.*/
 
 
