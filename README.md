@@ -129,7 +129,7 @@ class FencingaBarn
 }
 
 
-#Aquarium Water pH Value
+# Aquarium Water pH Value
 
 
 import java.util.Scanner;
@@ -166,7 +166,7 @@ public class Aquarium
 
 
 
-#Bookstore
+# Bookstore
 
 package com.btc.pkg1;
 
@@ -298,7 +298,7 @@ public class BookStoreImp1 {
 
 
 
-#Inheritance
+# Inheritance
 
 
 package com.btc.pkg1;
@@ -444,7 +444,7 @@ public class Main {
 
 
 
-#Score of Students
+# Score of Students
 
 
 package com.btc.pkg1;
@@ -505,7 +505,7 @@ public class StudentMarks
 
 
 
-#A Mobile Phone List
+# A Mobile Phone List
 
 
 package com.btc.pkg;
@@ -699,3 +699,102 @@ public class MobileStore
 }
 
 
+
+# Expensive item
+
+package com.btc.pkg1;
+
+public class Main {
+
+	public static void main(String[] args) 
+	{
+		
+		Item i1=new Item(12,"Book",522.2);
+		Item i2=new Item(5,"Box",20);
+		Item i3=new Item(52,"Dress",999);
+		Item [] i=new Item[5];
+		i[0]=i1;
+		i[1]=i2;
+		i[2]=i3;
+		double exp=i[0].getPrice();
+		String name=i[0].getName();
+		for(int j=0;j<=i.length-1;j++)
+		{
+			if(i[j]==null)
+			{
+				break;
+			}
+			else
+			{
+				System.out.println(i[j]);
+				
+				for(int k=0;k<i.length;k++)
+				{
+					for(int l=k+1;l<i.length;l++)
+					{
+						if(i[l]==null)
+						{
+							break;
+						}
+						else if(i[k].getPrice()<i[l].getPrice())
+						{
+							exp=i[l].getPrice();
+							name=i[l].getName();
+							break;
+						}
+					}	
+				}	
+			}		
+		}
+		System.out.println("Expensive item is "+name);
+		
+	}
+}
+
+
+package com.btc.pkg1;
+
+
+public class Item 
+{
+
+	private int id;
+	private String name;
+	private double price;
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public double getPrice() {
+		return price;
+	}
+	public void setPrice(double price) {
+		this.price = price;
+	}
+	@Override
+	public String toString() {
+		return "Item [id=" + id + ", name=" + name + ", price=" + price + "]";
+	}
+	public Item(int id, String name, double price) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.price = price;
+	}
+	public static void t()
+	{
+		System.out.println("STATIC ");
+	}
+}
+
+
+
+# 
