@@ -1552,6 +1552,7 @@ public class Mainprg13 {
 
 public class prg3 
 {
+					
 	public static int[] check(int arr1[],int arr2[]) 
 	{
 		
@@ -1608,6 +1609,7 @@ import java.util.Collections;
 import java.util.List;
 
 public class prg4 {
+					
 	public void fruitsList(List<String> list1, List<String> list2) {
 		List<String> list3 = new ArrayList<String>();
 		for (int i = 0; i < list1.size(); i++) {
@@ -1641,6 +1643,7 @@ import java.util.List;
 public class Mainprg4
 
 {
+					
 	public static void main(String[] args) 
 	{
 		ArrayList list1=new ArrayList();
@@ -1668,6 +1671,7 @@ import java.util.List;
 public class Mainprg4
 
 {
+					
 	public static void main(String[] args) 
 	{
 		ArrayList list1=new ArrayList();
